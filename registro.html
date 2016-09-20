@@ -1,0 +1,95 @@
+<html>
+<head>
+<title> Registro </title>
+
+	<script>
+	function vervalores(){
+		var sAux="";
+		var frm = document.getElementById("registro");
+		for (i=1;i<frm.elements.length;i++)
+		{ sAux += "NOMBRE: " + frm.elements[i].name + " ";
+		 sAux += "VALOR: " + frm.elements[i].value + "\n" ;
+		}
+		alert(sAux);
+	}
+	</script>
+
+</head>
+<body>
+	<form id='registro' name='registro' onSubmit='vervalores()' method="post" enctype="multipart/form-data">
+	Nombre: <input type= "text"
+			name="nombre"
+			id="nombre"
+			value="">
+			
+			<br>
+			
+	Apellido 1: <input type= "text"
+			name="apellido1"
+			id="apellido1"
+			value="">
+			
+			<br>
+			
+	Apellido 2: <input type= "text"
+			name="apellido2"
+			id="apellido2"
+			value="">
+			
+			<br>
+			
+	Direccion de correo: <input type= "text"
+			name="correo"
+			id="correo"
+			value="">
+			
+			<br>
+			
+	Password: <input type= "password"
+			name="contraseña"
+			id="contraseña"
+			value="">
+			
+			<br>
+			
+	Numero telefono: <input type= "number"
+			name="telefono"
+			id="telefono"
+			value="">
+			
+			<br>
+			
+	Especialidad: <select name="especialidad">
+					<option>Ingenieria del Software</option>
+					<option>Hardware</option>
+					<option>Computacion</option>
+					<option>Gestion y sistemas de informacion</option>
+					<option>Otro</option>
+				</select>
+				
+				<br>
+				
+	Tecnologias y herramientas en las que esta interesado:
+		<textarea	name="areatexto"
+					rows=5
+					cols=10>
+		</textarea>
+		
+				<br>
+				<br>
+		
+	Seleccione una imagen para subir:
+		<input type="file" name="imagen" />
+		
+				<br>
+				<br>
+				
+		<input type="submit" value="Enviar solicitud de inscripcion">
+		
+</form>	
+	<br>
+		
+	<a href="layout.html"> Ir a inicio </a>
+
+</body>
+</html>
