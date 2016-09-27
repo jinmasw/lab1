@@ -62,14 +62,6 @@
 						 return false;
 					 }
 				 }
-				  if (frm.elements[i].name == "telefono")
-				 {
-					if (aux.length != 9 )
-					 {
-						 alert("el numero de telefonos tiene que ser de 9 digitos");
-						 return false;
-					 }
-				 }
 				 else if (aux.length < 1 )
 					 {
 						 alert(frm.elements[i].name + " " + "vacio, por favor, rellene el campo");
@@ -122,7 +114,7 @@
 			
 			<br>
 			
-	Direccion de correo: <input type= "text"
+	Direccion de correo: <input type= "email"
 			name="correo"
 			id="correo"
 			value="">
@@ -139,6 +131,7 @@
 	Numero telefono: <input type= "number"
 			name="telefono"
 			id="telefono"
+			size ="9";
 			value="">
 			
 			<br>
