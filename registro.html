@@ -30,7 +30,7 @@
 						 return false;
 					 }
 				 }
-				 if (frm.elements[i].name == "apellido 1")
+				 if (frm.elements[i].name == "apellido_1")
 				 {
 					if (aux.length < 3)
 					 {
@@ -38,7 +38,7 @@
 						 return false;
 					 }
 				 }
-				 if (frm.elements[i].name == "apellido 2")
+				 if (frm.elements[i].name == "apellido_2")
 				 {
 					if (aux.length < 3)
 					 {
@@ -86,7 +86,7 @@
 			var e = document.getElementById("especialidad");
 			var f = e.options[e.selectedIndex].value;
 			var otro = document.getElementById("otra");
-			if (f == 5){
+			if (f == "Otro"){
 				otro.type="text";
 			} else {
 				otro.type="hidden";
@@ -100,7 +100,7 @@
 
 </head>
 <body>
-	<form id='registro' name='registro' onSubmit='verificarVacio()' method="post" enctype="multipart/form-data">
+	<form id='registro' name='registro' onSubmit='return verificarVacio()' method="post" enctype="multipart/form-data" ACTION="registro.php">
 	Nombre: <input type= "text"
 			name="nombre"
 			id="nombre"
@@ -109,15 +109,15 @@
 			<br>
 			
 	Apellido 1: <input type= "text"
-			name="apellido 1"
-			id="apellido 1"
+			name="apellido_1"
+			id="apellido_1"
 			value="">
 			
 			<br>
 			
 	Apellido 2: <input type= "text"
-			name="apellido 2"
-			id="apellido 2"
+			name="apellido_2"
+			id="apellido_2"
 			value="">
 			
 			<br>
@@ -144,11 +144,11 @@
 			<br>
 			
 	Especialidad: <select name="especialidad" id="especialidad" onchange="otraEspecialidad()">
-					<option value="1">Ingenieria del Software</option>
-					<option value="2">Hardware</option>
-					<option value="3">Computacion</option>
-					<option value="4">Gestion y sistemas de informacion</option>
-					<option value="5">Otro</option>
+					<option value="Ingenieria del Software">Ingenieria del Software</option>
+					<option value="Hardware">Hardware</option>
+					<option value="Computacion">Computacion</option>
+					<option value="Gestion y sistemas de informacion">Gestion y sistemas de informacion</option>
+					<option value="Otro">Otro</option>
 				</select>
 				
 					<input type= "hidden"
@@ -159,7 +159,7 @@
 			<br>
 				
 	Tecnologias y herramientas en las que esta interesado:
-		<textarea	name="area de texto"
+		<textarea	name="area_de_texto"
 					rows=5
 					cols=10>
 		</textarea>
