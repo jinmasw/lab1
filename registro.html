@@ -100,7 +100,7 @@
 
 </head>
 <body>
-	<form id='registro' name='registro' onSubmit='return verificarVacio()' method="post" enctype="multipart/form-data" ACTION="registro.php">
+	<form id='registro' name='registro' onSubmit='return verificarVacio()' method="post" enctype="multipart/form-data" ACTION="RegistrarConFoto.php">
 	Nombre: <input type= "text"
 			name="nombre"
 			id="nombre"
@@ -169,7 +169,7 @@
 		
 	Seleccione una imagen para subir:
 		<img style="display:none" id="miImagenVacia" alt="Mi Foto" width="125" height="125"/>
-		<input type="file" onchange="document.getElementById('miImagenVacia').style.display = 'inline';document.getElementById('miImagenVacia').src = window.URL.createObjectURL(this.files[0]); " name="imagen" />
+		<input type="file" onchange="document.getElementById('miImagenVacia').style.display = 'inline';document.getElementById('miImagenVacia').src = window.URL.createObjectURL(this.files[0]); " name="imagen" id="imagen" />
 		
 				<br>
 				<br>
