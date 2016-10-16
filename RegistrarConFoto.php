@@ -2,15 +2,15 @@
 
 header('Content-Type: text/html; charset=utf-8');
 
-//$serv = "mysql.hostinger.es";
-//$usuario = "u311047301_admin";
-//$password = "admin123";
-//$bd = "u311047301_quiz";
+$serv = "mysql.hostinger.es";
+$usuario = "u311047301_admin";
+$password = "admin123";
+$bd = "u311047301_quiz";
 
-$serv = "127.0.0.1";
-$usuario = "root";
-$password = "";
-$bd = "quiz";
+//$serv = "127.0.0.1";
+//$usuario = "root";
+//$password = "";
+//$bd = "quiz";
 
 require_once 'validaciones.php';
 
@@ -27,7 +27,7 @@ require_once 'validaciones.php';
 	
 	if ($esp == 'Otro')
 	{
-	$esp = $_POST['otra'];
+	  $esp = $_POST['otra'];
 	}
 	if (!validarNombre($nombre)) {
       $errores[] = 'El campo nombre es incorrecto.';
