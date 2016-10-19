@@ -27,7 +27,7 @@ require_once 'validaciones.php';
 	
 	if ($esp == 'Otro')
 	{
-	  $esp = $_POST['otra'];
+	$esp = $_POST['otra'];
 	}
 	if (!validarNombre($nombre)) {
       $errores[] = 'El campo nombre es incorrecto.';

@@ -48,7 +48,7 @@ if(isset($_POST['correo']))
 	{
 		session_start();
 		$_SESSION['login_email'] = $correo;
-		header("Location: InsertarPregunta.php?correo=$correo");
+		header("Location: AddConexion.php");
 	}
 	else
 	{

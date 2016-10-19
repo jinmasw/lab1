@@ -16,6 +16,59 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `acciones`
+--
+
+DROP TABLE IF EXISTS `acciones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `acciones` (
+  `identificadorAccion` int(11) NOT NULL AUTO_INCREMENT,
+  `identificadorConexion` int(11) DEFAULT NULL,
+  `correoUsuario` varchar(50) DEFAULT NULL,
+  `tipoAccion` varchar(50) DEFAULT NULL,
+  `hora` datetime DEFAULT NULL,
+  `ip` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`identificadorAccion`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `acciones`
+--
+
+LOCK TABLES `acciones` WRITE;
+/*!40000 ALTER TABLE `acciones` DISABLE KEYS */;
+INSERT INTO `acciones` VALUES (1,1,'ima000@ikasle.ehu.es','InsertarPregunta','2016-10-19 20:26:03','::1'),(2,NULL,NULL,'VisualizarPreguntas','2016-10-19 20:26:42','::1');
+/*!40000 ALTER TABLE `acciones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `conexiones`
+--
+
+DROP TABLE IF EXISTS `conexiones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `conexiones` (
+  `conexion` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha_conexion` datetime DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`conexion`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `conexiones`
+--
+
+LOCK TABLES `conexiones` WRITE;
+/*!40000 ALTER TABLE `conexiones` DISABLE KEYS */;
+INSERT INTO `conexiones` VALUES (1,'2016-10-19 20:25:01','ima000@ikasle.ehu.es');
+/*!40000 ALTER TABLE `conexiones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `pregunta`
 --
 
@@ -29,7 +82,7 @@ CREATE TABLE `pregunta` (
   `dificultad` int(11) DEFAULT NULL,
   `email_autor` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +91,7 @@ CREATE TABLE `pregunta` (
 
 LOCK TABLES `pregunta` WRITE;
 /*!40000 ALTER TABLE `pregunta` DISABLE KEYS */;
-INSERT INTO `pregunta` VALUES (1,'¿tomalo...?','que no lo quiero',3,'ima000@ikasle.ehu.es'),(2,'¿funka?','pues claro',2,'jgonzalez001@ikasle.ehu.es');
+INSERT INTO `pregunta` VALUES (1,'¿tomalo...?','que no lo quiero',3,'ima000@ikasle.ehu.es'),(2,'¿funka?','pues claro',2,'jgonzalez001@ikasle.ehu.es'),(3,'Â¿pim, pam, ...?','pum',3,'ima000@ikasle.ehu.es');
 /*!40000 ALTER TABLE `pregunta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-17  0:39:46
+-- Dump completed on 2016-10-19 20:49:02

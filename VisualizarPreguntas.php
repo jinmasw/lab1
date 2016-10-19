@@ -17,6 +17,24 @@ while ($row = mysqli_fetch_array( $preguntas )) {
 echo '<tr><td>' . $row['pregunta'] . '</td> <td>' . $row['dificultad'] . '</td> <td>' . $row['email_autor'] . '</td>';
 }
 echo '</table>';
+
 $preguntas->close();
+
+mysqli_close($link);
+
+
+
+
+$ip = $_SERVER['REMOTE_ADDR'];
+$hora =  date('Y-m-d H:i:s');
+
+$link = mysqli_connect($serv, $usuario, $password, $bd);
+$sql = "INSERT INTO acciones (tipoAccion,hora,ip) values ('VisualizarPreguntas','$hora','$ip')";
+
+if (!mysqli_query($link ,$sql))
+	{
+		die('Error:' . mysqli_error($link));
+	}
+	
 mysqli_close($link);
 ?>
