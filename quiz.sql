@@ -30,7 +30,7 @@ CREATE TABLE `acciones` (
   `hora` datetime DEFAULT NULL,
   `ip` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`identificadorAccion`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `acciones` (
 
 LOCK TABLES `acciones` WRITE;
 /*!40000 ALTER TABLE `acciones` DISABLE KEYS */;
-INSERT INTO `acciones` VALUES (1,1,'ima000@ikasle.ehu.es','InsertarPregunta','2016-10-19 20:26:03','::1'),(2,NULL,NULL,'VisualizarPreguntas','2016-10-19 20:26:42','::1');
+INSERT INTO `acciones` VALUES (1,1,'ima000@ikasle.ehu.es','InsertarPregunta','2016-10-19 20:26:03','::1'),(2,NULL,NULL,'VisualizarPreguntas','2016-10-19 20:26:42','::1'),(3,3,'ima000@ikasle.ehu.es','InsertarPregunta','2016-10-22 21:02:17','::1'),(4,NULL,NULL,'VisualizarPreguntas','2016-10-22 21:02:24','::1'),(5,7,'ima000@ikasle.ehu.es','InsertarPregunta','2016-10-22 22:04:05','::1'),(6,7,'ima000@ikasle.ehu.es','InsertarPregunta','2016-10-22 22:06:13','::1'),(7,7,'ima000@ikasle.ehu.es','InsertarPregunta','2016-10-22 22:06:24','::1'),(8,8,'ima000@ikasle.ehu.es','InsertarPregunta','2016-10-22 22:38:12','::1');
 /*!40000 ALTER TABLE `acciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +55,7 @@ CREATE TABLE `conexiones` (
   `fecha_conexion` datetime DEFAULT NULL,
   `correo` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`conexion`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `conexiones` (
 
 LOCK TABLES `conexiones` WRITE;
 /*!40000 ALTER TABLE `conexiones` DISABLE KEYS */;
-INSERT INTO `conexiones` VALUES (1,'2016-10-19 20:25:01','ima000@ikasle.ehu.es');
+INSERT INTO `conexiones` VALUES (1,'2016-10-19 20:25:01','ima000@ikasle.ehu.es'),(2,'2016-10-22 21:01:09','ima000@ikasle.ehu.es'),(3,'2016-10-22 21:01:34','ima000@ikasle.ehu.es'),(4,'2016-10-22 21:49:02','ima000@ikasle.ehu.es'),(5,'2016-10-22 21:54:30','ima000@ikasle.ehu.es'),(6,'2016-10-22 22:03:04','ima000@ikasle.ehu.es'),(7,'2016-10-22 22:03:45','ima000@ikasle.ehu.es'),(8,'2016-10-22 22:37:41','ima000@ikasle.ehu.es');
 /*!40000 ALTER TABLE `conexiones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,8 +81,9 @@ CREATE TABLE `pregunta` (
   `respuesta` varchar(140) DEFAULT NULL,
   `dificultad` int(11) DEFAULT NULL,
   `email_autor` varchar(50) DEFAULT NULL,
+  `tematica` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +92,7 @@ CREATE TABLE `pregunta` (
 
 LOCK TABLES `pregunta` WRITE;
 /*!40000 ALTER TABLE `pregunta` DISABLE KEYS */;
-INSERT INTO `pregunta` VALUES (1,'¿tomalo...?','que no lo quiero',3,'ima000@ikasle.ehu.es'),(2,'¿funka?','pues claro',2,'jgonzalez001@ikasle.ehu.es'),(3,'Â¿pim, pam, ...?','pum',3,'ima000@ikasle.ehu.es');
+INSERT INTO `pregunta` VALUES (1,'¿tomalo...?','que no lo quiero',3,'ima000@ikasle.ehu.es',NULL),(2,'¿funka?','pues claro',2,'jgonzalez001@ikasle.ehu.es',NULL),(3,'Â¿pim, pam, ...?','pum',3,'ima000@ikasle.ehu.es',NULL),(4,'Â¿donde se lia?','doka',2,'ima000@ikasle.ehu.es','fiesta'),(9,'martes de ...','bata',3,'ima000@ikasle.ehu.es','fiesta'),(10,'se lia?','si',2,'ima000@ikasle.ehu.es','fieston'),(11,'jaja?','jeje',0,'ima000@ikasle.ehu.es',''),(12,'the big bang...','theory',2,'ima000@ikasle.ehu.es','series');
 /*!40000 ALTER TABLE `pregunta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -135,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-19 20:49:02
+-- Dump completed on 2016-10-22 22:44:46

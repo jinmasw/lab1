@@ -26,6 +26,13 @@
 			
 			<br>
 			
+			Tematica: <input type= "text"
+			name="tematica"
+			id="tematica"
+			value="">
+			
+			<br>
+			
 		<input type="submit" value="Enviar">	
 	</form>	
 		
@@ -49,6 +56,8 @@
 		$pregunta = $_POST['pregunta'];
 		$respuesta = $_POST['respuesta'];
 		$dificultad = $_POST['dificultad'];
+		$tematica = $_POST['tematica'];
+		
 		session_start();
 		$correo = $_SESSION['login_email'];
 		$date_sesion = $_SESSION['fecha_sesion'];
@@ -57,7 +66,7 @@
 		$ip = $_SESSION['ip'];
 		
 		$link = mysqli_connect($serv,$usuario,$password,$bd);
-		$sql = "INSERT INTO pregunta (pregunta,respuesta,dificultad,email_autor) VALUES ('$pregunta','$respuesta','$dificultad','$correo')";
+		$sql = "INSERT INTO pregunta (pregunta,respuesta,dificultad,email_autor,tematica) VALUES ('$pregunta','$respuesta','$dificultad','$correo','$tematica')";
 		
 		if (!mysqli_query($link ,$sql))
 			{
@@ -66,6 +75,26 @@
 
 		echo "Se ha añadido una pregunta";
 		echo '<a href="InsertarPregunta.php"> Añadir otra pregunta </a>';
+		
+		$xml = simplexml_load_file('preguntas.xml');
+		$assessmentItem = $xml->addChild('assessmentItem');
+		$assessmentItem->addAttribute('complexity',$dificultad);
+		$assessmentItem->addAttribute('subject',$tematica);
+		
+		$itemBody = $assessmentItem->addChild('itemBody');
+		$itemBody->addChild('p',$pregunta);
+		
+		$correctResponse = $assessmentItem->addChild('correctResponse');;
+		$correctResponse->addChild('value',$respuesta);
+		
+		if (!$xml->asXML('preguntas.xml'))
+		{
+			die('Error: la insercion no ha sido posible');
+		}
+		
+		echo "<br>";
+		echo "Se ha añadido una pregunta al XML";
+		echo '<a href="VerPreguntasXML.php"> Ver las preguntas del XML </a>';
 		
 		mysqli_close($link);
 		
