@@ -25,8 +25,8 @@
 			{
 				die('Error:' . mysqli_error($link));
 			}
-		header("Location: InsertarPregunta.php");
-		
+		//header("Location: InsertarPregunta.php");
+		header("Location: GestionPreguntas.php");
 		
 		mysqli_close($link);
 	//}
