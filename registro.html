@@ -18,7 +18,7 @@
 	<script language="javascript">
 		 function verificarVacio()
 		 {
-			/* var aux;
+			 var aux;
 			 var frm = document.getElementById("registro");
 			 for (i=0; i < 7 ;i++) {
 				 aux = frm.elements[i].value;
@@ -70,15 +70,45 @@
 						 return false;
 					 }
 				 }
+				 
+				 /*if (frm.elements[i].name == "valido")
+				 {
+					if (aux != "SI" )
+					 {
+						 alert("No esta matriculado en SW");
+						 return false;
+					 }
+				 }
+				 
+				 if (frm.elements[i].name == "valida")
+				 {
+					if (aux != "VALIDA" )
+					 {
+						 alert("Su contraseña no es segura");
+						 return false;
+					 }
+				 }*/
 				 else if (aux.length < 1 )
 					 {
 						 alert(frm.elements[i].name + " " + "vacio, por favor, rellene el campo");
 						 return false;
 					 } 
-			 }*/
+				if (document.getElementById("valida").innerHTML != "VALIDA")
+				{
+					alert("Contraseña no valida");
+					return false;
+				}
+				if (document.getElementById("valido").innerHTML != "SI")
+				{
+					alert("Correo no valido");
+					return false;
+				}
+			 
 			 vervalores();
 			 return true;
 		 }
+	}
+	}
 	 </script>
 	
 	<script>
@@ -93,6 +123,56 @@
 				otro.value="Por favor, especifica cual"
 			}
 		}
+	</script>
+	
+	
+	<script language=javascript>	
+	function validarCorreo(){
+				
+		//$(document).ready(function(){
+    
+        //$.ajax({url: "preguntasUsuario.php", success: function(result){$("#preguntasAutor").html(result);}});});
+				
+				
+				if (window.XMLHttpRequest){
+					xmlhttp= new XMLHttpRequest();
+				}
+				
+				xmlhttp.onreadystatechange= function(){
+					if (xmlhttp.readyState==4 && xmlhttp.status==200){
+						document.getElementById("valido").innerHTML=xmlhttp.responseText;
+					}
+				}
+				var mail = document.getElementById("correo").value;
+				xmlhttp.open("GET","clienteSOAP.php?correo="+mail,true);
+				xmlhttp.send();
+	}
+		
+	</script>	
+	
+	
+	
+	<script language=javascript>	
+	function validarContrasena(){
+		//$(document).ready(function(){
+    
+        //$.ajax({url: "preguntasUsuario.php", success: function(result){$("#preguntasAutor").html(result);}});});
+				
+				
+				if (window.XMLHttpRequest){
+					xmlhttp= new XMLHttpRequest();
+				}
+				
+				xmlhttp.onreadystatechange= function(){
+					if (xmlhttp.readyState==4 && xmlhttp.status==200){
+						document.getElementById("valida").innerHTML=xmlhttp.responseText;
+					}
+				}
+				var pass = document.getElementById("contraseña").value;
+				xmlhttp.open("GET","passSOAP.php?contrasena="+pass,true);
+				xmlhttp.send();
+	}
+		
 	</script>
 	
 	
@@ -125,14 +205,24 @@
 	Direccion de correo: <input type= "text"
 			name="correo"
 			id="correo"
+			onchange="validarCorreo()"
 			value="">
+			
+			<br>
+			
+			<div id = "valido" name= "valido" value=""></div>
 			
 			<br>
 			
 	Password: <input type= "password"
 			name="contraseña"
 			id="contraseña"
+			onchange="validarContrasena()"
 			value="">
+			
+			<br>
+			
+			<div id = "valida" name= "valida" value=""></div>
 			
 			<br>
 			
@@ -174,12 +264,19 @@
 				<br>
 				<br>
 				
-	<input type="submit" value="Enviar solicitud de inscripcion">
+	<input type="submit" value="Enviar solicitud de inscripcion" >
 		
 </form>	
 	<br>
 		
 	<a href="layout.html"> Ir a inicio </a>
 
+	
+
+	
+	
+	
 </body>
 </html>
+
+
