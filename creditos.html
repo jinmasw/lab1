@@ -22,8 +22,32 @@
 			
 	</style> 
 
+	
+	<script language=javascript>	
+	function localizarCliente(){
+		//$(document).ready(function(){
+    
+        //$.ajax({url: "preguntasUsuario.php", success: function(result){$("#preguntasAutor").html(result);}});});
+				
+				
+				if (window.XMLHttpRequest){
+					xmlhttp= new XMLHttpRequest();
+				}
+				
+				xmlhttp.onreadystatechange= function(){
+					if (xmlhttp.readyState==4 && xmlhttp.status==200){
+						document.getElementById("datoscliente").innerHTML=xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET","DatosCliente.php",true);
+				xmlhttp.send();
+	}
+		
+	</script>
+	
+	
 </head>
-<body>
+<body onload="localizarCliente()">
 	<table>
 		<th> Miembro 1 </th>
 		<th> Miembro 2 </th>
@@ -42,6 +66,8 @@
 	</table>
 		
 	<a href="layout.html"> Ir a inicio </a>
+	
+	<div id = "datoscliente" name= "datoscliente" value=""></div>
 
 </body>
 </html>

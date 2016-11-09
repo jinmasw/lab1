@@ -19,7 +19,7 @@
 				xmlhttp.send();
 			}
 		</script>
-		
+
 		<script type="text/javascript">
 			function sendQuestion(p, r, d, t){
 				
@@ -40,6 +40,39 @@
 		
 	</head>
 	<body>
+	
+	<OBJECT id="datos" data="usuarios.xml" type="text/xml" style="display:none">
+	</OBJECT>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+	<script> 
+		var contador = setInterval(verProporcion, 1000);
+		function verProporcion(){
+				
+		$(document).ready(function(){
+    
+        $.ajax({url: "preguntasUsuario.php", success: function(result){$("#preguntasAutor").html(result);}});});
+				
+				
+				/*if (window.XMLHttpRequest){
+					xmlhttp= new XMLHttpRequest();
+				}
+				
+				xmlhttp.onreadystatechange= function(){
+					if (xmlhttp.readyState==4 && xmlhttp.status==200){
+						document.getElementById("preguntasAutor").innerHTML=xmlhttp.responseText;
+					}
+				}
+				
+				xmlhttp.open("GET","preguntasUsuario.php",true);
+				xmlhttp.send();*/
+	}
+		
+	</script>
+
+		<div id="preguntasAutor">Aqui va numpreguntas</div>
+		
 		<form>
 	
 			Pregunta: <input type= "text"

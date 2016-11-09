@@ -70,24 +70,6 @@
 						 return false;
 					 }
 				 }
-				 
-				 /*if (frm.elements[i].name == "valido")
-				 {
-					if (aux != "SI" )
-					 {
-						 alert("No esta matriculado en SW");
-						 return false;
-					 }
-				 }
-				 
-				 if (frm.elements[i].name == "valida")
-				 {
-					if (aux != "VALIDA" )
-					 {
-						 alert("Su contraseña no es segura");
-						 return false;
-					 }
-				 }*/
 				 else if (aux.length < 1 )
 					 {
 						 alert(frm.elements[i].name + " " + "vacio, por favor, rellene el campo");
@@ -169,7 +151,8 @@
 					}
 				}
 				var pass = document.getElementById("contraseña").value;
-				xmlhttp.open("GET","passSOAP.php?contrasena="+pass,true);
+				var ticket = document.getElementById("ticket").value;
+				xmlhttp.open("GET","passSOAP.php?contrasena="+pass+"&ticket="+ticket,true);
 				xmlhttp.send();
 	}
 		
@@ -211,6 +194,13 @@
 			<br>
 			
 			<div id = "valido" name= "valido" value=""></div>
+			
+			<br>
+			
+	Ticket de 4 numeros: <input type= "text"
+			name="ticket"
+			id="ticket"
+			value="">
 			
 			<br>
 			
