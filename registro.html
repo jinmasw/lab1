@@ -139,7 +139,11 @@
 		//$(document).ready(function(){
     
         //$.ajax({url: "preguntasUsuario.php", success: function(result){$("#preguntasAutor").html(result);}});});
-				
+		
+		var pass = document.getElementById("contraseña").value;
+		var pass2 = document.getElementById("contraseña2").value;
+		
+			if (pass == pass2){
 				
 				if (window.XMLHttpRequest){
 					xmlhttp= new XMLHttpRequest();
@@ -150,10 +154,15 @@
 						document.getElementById("valida").innerHTML=xmlhttp.responseText;
 					}
 				}
-				var pass = document.getElementById("contraseña").value;
+				
 				var ticket = document.getElementById("ticket").value;
 				xmlhttp.open("GET","passSOAP.php?contrasena="+pass+"&ticket="+ticket,true);
 				xmlhttp.send();
+			}
+			
+			else{
+				document.getElementById("valida").innerHTML="LAS CONTRASEÑAS NO COINCIDEN";
+			}
 	}
 		
 	</script>
@@ -205,6 +214,13 @@
 			<br>
 			
 	Password: <input type= "password"
+			name="contraseña2"
+			id="contraseña2"
+			value="">
+			
+			<br>
+			
+	Repita la Password: <input type= "password"
 			name="contraseña"
 			id="contraseña"
 			onchange="validarContrasena()"

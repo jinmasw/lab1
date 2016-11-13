@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['usuario']))
+{
+	if($_SESSION['usuario']=='alumno')
+	{
+?>
 <html>
 	<head>
 		<title> Insertar Pregunta AJAX</title>
@@ -71,6 +78,8 @@
 		
 	</script>
 
+	<span><a href='layout.php'>Inicio</a></spam>
+	
 		<div id="preguntasAutor">Aqui va numpreguntas</div>
 		
 		<form>
@@ -118,3 +127,16 @@
 		
 	</body>
 </html>
+<?php
+}
+else
+	{
+		header("Location: Login.php");
+	}
+}
+	else
+	{
+		header("Location: Login.php");
+	}
+
+?>

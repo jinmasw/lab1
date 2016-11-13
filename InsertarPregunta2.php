@@ -43,8 +43,10 @@
 	$itemBody = $assessmentItem->addChild('itemBody');
 	$itemBody->addChild('p',$pregunta);
 	
-	$correctResponse = $assessmentItem->addChild('correctResponse');;
+	
+	$correctResponse = $assessmentItem->addChild('correctResponse');
 	$correctResponse->addChild('value',$respuesta);
+	
 	
 	if (!$xml->asXML('preguntas.xml'))
 	{

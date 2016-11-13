@@ -14,12 +14,11 @@
 	$server->register('comprobarTicket', array('t2'=>'xsd:string'), array('v'=>'xsd:string'), $ns);
 	
 	function comprobarPass($c,$t){
-		if(strcmp(comprobarTicket($t),"SI")!=0 and strcmp($t,"0000")!=0)
+		if(strcmp(comprobarTicket($t),"SI")==0)
 		{
 		$file = fopen("toppasswords.txt","r") or exit("No se ha podido abrir el archivo");
 		$respuesta = 'VALIDA';
 		$contrasena = trim($c);
-		$a = fgets($file);
 		while(!feof($file)){
 			$a = trim(fgets($file));
 			
@@ -48,7 +47,6 @@
 		{
 		$file2 = fopen("tickets.txt","r") or exit("No se ha podido abrir el archivo");
 		$ticket = trim($t2);
-		$a2 = fgets($file2);
 		$autorizado = "NO";
 		
 		while(!feof($file2)){

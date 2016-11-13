@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="verPreguntas.xsl"?>
+<items>
+  <item>
+    <pregunta>Tag HTML para anadir un formulario</pregunta>
+    <tema>Web</tema>
+    <complejidad>2</complejidad>
+	<respuesta>FORM</respuesta>
+  </item>
+  <item>
+    <pregunta>Este protocolo acabara funcionando incluso entre dos latas unidas por un cordon</pregunta>
+    <tema>Internet</tema>
+    <complejidad>4</complejidad>
+	<respuesta>TCP/IP</respuesta>
+  </item>
+</items>
