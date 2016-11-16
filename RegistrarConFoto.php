@@ -7,10 +7,10 @@ $usuario = "u311047301_admin";
 $password = "admin123";
 $bd = "u311047301_quiz";
 
-//$serv = "127.0.0.1";
-//$usuario = "root";
-//$password = "";
-//$bd = "quiz";
+/*$serv = "127.0.0.1";
+$usuario = "root";
+$password = "";
+$bd = "quiz";*/
 
 require_once 'validaciones.php';
 
@@ -20,6 +20,7 @@ require_once 'validaciones.php';
 	$correo = $_POST['correo'];
 	$telefono = $_POST['telefono'];
 	$contraseña = $_POST['contraseña'];
+	$contraseña = sha1($contraseña);
 	$esp = $_POST['especialidad'];
 	$foto = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
 	
@@ -47,13 +48,14 @@ require_once 'validaciones.php';
 	
 	if(!$errores){
 	$link = mysqli_connect($serv,$usuario,$password,$bd);
-	$sql = "INSERT INTO usuario VALUES ('$nombre','$apellido_1','$apellido_2','$correo','$telefono','$contraseña','$esp','$_POST[area_de_texto]','$foto')";
+	$sql = "INSERT INTO usuario (nombre,apellido1,apellido2,email,telefono,password,especialidad,tecnologias,imagen) VALUES ('$nombre','$apellido_1','$apellido_2','$correo','$telefono','$contraseña','$esp','$_POST[area_de_texto]','$foto')";
 	if (!mysqli_query($link ,$sql))
 	{
 		die('Error:' . mysqli_error($link));
 	}
 
 	echo "1 record added";
+	//echo "Contraseña codificada guardada".$contraseña."<br>";
 	echo "<p> <a href='VerUsuariosConFoto.php'> Ver usuarios </a>";
 	mysqli_close($link);
 	}

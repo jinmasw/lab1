@@ -7,10 +7,10 @@ $usuario = "u311047301_admin";
 $password = "admin123";
 $bd = "u311047301_quiz";
 
-//$serv = "127.0.0.1";
-//$usuario = "root";
-//$password = "";
-//$bd = "quiz";
+/*$serv = "127.0.0.1";
+$usuario = "root";
+$password = "";
+$bd = "quiz";*/
 
 $link = mysqli_connect($serv, $usuario, $password, $bd);
 $usuarios = mysqli_query($link, "select * from usuario" );
@@ -22,5 +22,7 @@ echo '<tr><td>' . $row['NOMBRE'] . '</td> <td>' . $row['APELLIDO1'] . '</td> <td
 echo '</table>';
 $usuarios->close();
 mysqli_close($link);
+
+echo "<span><a href='layout.php'>Inicio</a></spam>";
 
 ?>

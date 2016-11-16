@@ -1,14 +1,14 @@
 <?php
 
-	/*$serv = "mysql.hostinger.es";
+	$serv = "mysql.hostinger.es";
 	$usuario = "u311047301_admin";
 	$password = "admin123";
-	$bd = "u311047301_quiz";*/
+	$bd = "u311047301_quiz";
 
-	$serv = "127.0.0.1";
+	/*$serv = "127.0.0.1";
 	$usuario = "root";
 	$password = "";
-	$bd = "quiz";
+	$bd = "quiz";*/
 	
 	session_start();
 	$correo = $_SESSION['login_email'];//"jgonzalez001@ikasle.ehu.es"

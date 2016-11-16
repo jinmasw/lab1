@@ -59,15 +59,15 @@ if (!isset($_SESSION['login_email']) or strcmp($_SESSION['login_email'],"web000@
 }*/
 
 
-//$serv = "mysql.hostinger.es";
-//$usuario = "u311047301_admin";
-//$password = "admin123";
-//$bd = "u311047301_quiz";
+$serv = "mysql.hostinger.es";
+$usuario = "u311047301_admin";
+$password = "admin123";
+$bd = "u311047301_quiz";
 
-$serv = "127.0.0.1";
+/*$serv = "127.0.0.1";
 $usuario = "root";
 $password = "";
-$bd = "quiz";
+$bd = "quiz";*/
 
 $link = mysqli_connect($serv, $usuario, $password, $bd);
 $preguntas = mysqli_query($link, "select indice, pregunta, respuesta, dificultad, email_autor from pregunta" );

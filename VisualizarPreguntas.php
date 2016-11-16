@@ -1,18 +1,18 @@
 <?php
 
-/*$serv = "mysql.hostinger.es";
+$serv = "mysql.hostinger.es";
 $usuario = "u311047301_admin";
 $password = "admin123";
-$bd = "u311047301_quiz";*/
+$bd = "u311047301_quiz";
 
 session_start();
 if (!isset($_SESSION['usuario']))
 {
 
-$serv = "127.0.0.1";
+/*$serv = "127.0.0.1";
 $usuario = "root";
 $password = "";
-$bd = "quiz";
+$bd = "quiz";*/
 
 $link = mysqli_connect($serv, $usuario, $password, $bd);
 $preguntas = mysqli_query($link, "select pregunta,dificultad,email_autor from pregunta" );

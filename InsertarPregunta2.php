@@ -5,10 +5,10 @@
 	$password = "admin123";
 	$bd = "u311047301_quiz";
 
-	//$serv = "127.0.0.1";
-	//$usuario = "root";
-	//$password = "";
-	//$bd = "quiz";
+	/*$serv = "127.0.0.1";
+	$usuario = "root";
+	$password = "";
+	$bd = "quiz";*/
 	
 	sleep(2);
 	
